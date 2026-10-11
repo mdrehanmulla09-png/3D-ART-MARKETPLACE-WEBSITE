@@ -81,7 +81,43 @@ npm run build
 
 ---
 
-## 5. Environment Variables & Production Integration
+## 5. Deploying to Vercel
+
+ARTORA is fully configured for zero-configuration, production deployment on **Vercel** with SPA route rewrites, CDN asset caching, and split Three.js vendor chunking.
+
+### Method A: Deploy via GitHub (Recommended)
+1. Push this repository to your GitHub account:
+   ```bash
+   git remote add origin https://github.com/your-username/artora.git
+   git push -u origin main
+   ```
+2. Go to [vercel.com/new](https://vercel.com/new) and click **Import** next to your `artora` repository.
+3. Vercel will automatically detect the settings:
+   - **Framework Preset:** `Vite`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Click **Deploy**. Your site will be live with full SSL, global CDN, and SPA deep-link support.
+
+### Method B: Deploy via Vercel CLI
+```bash
+# Run from the project directory
+npx vercel
+
+# Follow prompts:
+# ? Set up and deploy? [Y]
+# ? Which scope? [Your Account]
+# ? Link to existing project? [N]
+# ? What's your project's name? artora
+# ? In which directory is your code located? ./
+# Want to modify these settings? [N]
+
+# Deploy directly to production:
+npx vercel --prod
+```
+
+---
+
+## 6. Environment Variables & Production Integration
 
 Create a `.env` file in the root directory for live service credentials:
 
